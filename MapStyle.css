@@ -1,0 +1,116 @@
+#map {
+        position: relative;
+		height: 400px;
+		width: 50%;
+		margin-left: 400px;
+}
+#Search{
+	position: relative;
+	margin-left: 5px;
+}
+
+#SearchText{
+	position: relative;
+	margin-left: 400px;
+}
+
+h1 {
+	color: black;
+	font-family: "Arial Black";
+	text-align: center;
+}
+
+h2 {
+	color: black;
+	font-family: "Arial Black";
+	text-align: center;
+}
+h3 {
+	color: black;
+	font-family: "Arial Black";
+	text-align: center;
+}
+
+body {
+	background-image: url("https://wallpapertag.com/wallpaper/full/2/7/e/448899-widescreen-basketball-court-wallpaper-2560x1440-for-iphone-6.jpg");
+	background-attachment: fixed;
+}
+
+.main {
+	margin-left: 160px;
+	padding: 0px 10px;
+}
+
+/* The side navigation menu */
+.sidenav {
+	height: 100%;
+	width: 250px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #111;
+	overflow-x: hidden;
+	padding-top: 60px;
+	transition: 0.5s;
+}	
+.sidenav a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 20px;
+	font-family: "Arial Black";
+	color: #818181;
+	display: block;
+	transition: 0.3s;	
+}
+.sidenav a:hover {
+	color: #f1f1f1;
+}
+.sidenav .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px;
+	margin-left: 50px;
+}
+@media screen and (max-height: 450px) {
+	.sidenav {padding-top:15px;}
+	.sidenav a {font-size:18px;}
+}
+
+form {
+	padding-left: 380px;
+}
+
+iframe {
+	padding-left: 100px;
+	position: center;
+}
+
+/* Dropdown menu */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #ddd}
+
+.show {display:block;}

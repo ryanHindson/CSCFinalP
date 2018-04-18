@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<script src="MapScript.js"></script>
+	<title>Full Court Performance</title>
+	<link rel="stylesheet" type="text/css" href="MapStyle.css">
+		<meta charset="utf-8">
+
+		<script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+	</head>
+	<body>
+		<div id="SideNav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times</a>
+			<a href="FinalProject1.html">Home</a>
+			<a href="AboutUs.html">About Us</a>
+			<a href="#">Local Courts</a>
+			<a href="csc130PP.html">Training Videos</a>
+			<a href="Stats.html">NBA Stats</a>
+			<a href="NBAHighlights.HTML">Nightly Highlights</a>
+			<a href="Mypage.html">My page</a>
+		</div>
+		<span style="font-family: Arial Black" onclick="openNav()">Show Sidebar</span>
+		
+		<div class="main">
+			<h1>Full Court Performance</h1>
+			<h2>Find Courts Near Me!</h2>
+			<h3>Not sure where to play? Just look for the red marker nearest to you! Alternatively, use the search function to search for a gym.</h3>
+		</div>
+		<div id="map"></div>
+		<input type="text" id="SearchText" value="CARSA">
+		<button id = "Search" onclick="">Go!</button>
+		<div class="dropdown">
+		<button onclick="myFunction()" class="dropbtn">Locations</button>
+		<div id="myDropdown" class="dropdown-content">
+			<a href="#CARSA" class="CARSA">CARSA</a>
+			<a href="#McKinnon" class="McKinnon">McKinnon</a>
+			<a href="#Cedar" class="Cedar">Cedar Hill Rec</a>
+			<a href="#Oak" class="Oak">Cedar Bay Rec</a>
+			<a href="#Royal" class="Royal">Royal Roads Rec</a>
+		
+		</div>
+		</div>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJbZLEFjys1_WWy4mASMoRUzgtTY-LJSw&callback=initMap";>
+		</script>
+		<script>
+		//I couldn't get this to work in the separate JavaScript file for some reason, so it's here.
+			var myGyms = [];
+			var myLatitudes = [];
+			var myLongitudes = [];
+			var lati = 0;
+			var longi = 0;
+			
+		function processData(myData) {
+			
+			for (var i = 0 ; i < 5 ; i++) {
+				myGyms[i] = myData[i].Location;
+				myLatitudes[i] = myData[i].Latitude;
+				myLongitudes[i] = myData[i].Longitude;
+				}
+			}
+		
+				$(document).ready(function() {
+			$.getJSON("http://danycabrera.com/csc130/proxy.php?key=1XBF2vKuBkvA3HnDqXG75CHXtYpCsK9CQNYKkL2ZdcVk&sheet=Sheet1%20data", processData);
+		});
+		
+		window.onclick = function(event) {
+		if (event.target.matches('.McKinnon')) {
+			for( var i = 0 ; i < 5 ; i++){
+				if(myGyms[i] == 'McKinnon'){
+				lati = parseFloat(myLatitudes[i]);
+				longi = parseFloat(myLongitudes[i]);
+				break;
+				}
+			}
+			var gymLocation = {lat: lati, lng: longi};
+			var map = new google.maps.Map(document.getElementById('map'), {
+					zoom: 14,
+					center: gymLocation
+				});
+			var marker = new google.maps.Marker({
+					position: gymLocation,
+					map: map
+				});
+			} else if (event.target.matches('.CARSA')) {
+			for( var i = 0 ; i < 5 ; i++){
+				if(myGyms[i] == 'CARSA'){
+				lati = parseFloat(myLatitudes[i]);
+				longi = parseFloat(myLongitudes[i]);
+				break;
+				}
+			}
+			var gymLocation = {lat: lati, lng: longi};
+			var map = new google.maps.Map(document.getElementById('map'), {
+					zoom: 14,
+					center: gymLocation
+				});
+			var marker = new google.maps.Marker({
+					position: gymLocation,
+					map: map
+				});
+			} else if (event.target.matches('.Cedar')) {
+			for( var i = 0 ; i < 5 ; i++){
+				if(myGyms[i] == 'Cedar Hill Rec'){
+				lati = parseFloat(myLatitudes[i]);
+				longi = parseFloat(myLongitudes[i]);
+				break;
+				}
+			}
+			var gymLocation = {lat: lati, lng: longi};
+			var map = new google.maps.Map(document.getElementById('map'), {
+					zoom: 14,
+					center: gymLocation
+				});
+			var marker = new google.maps.Marker({
+					position: gymLocation,
+					map: map
+				});
+			} else if (event.target.matches('.Oak')) {
+			for( var i = 0 ; i < 5 ; i++){
+				if(myGyms[i] == 'Oak Bay Rec'){
+				lati = parseFloat(myLatitudes[i]);
+				longi = parseFloat(myLongitudes[i]);
+				break;
+				}
+			}
+			var gymLocation = {lat: lati, lng: longi};
+			var map = new google.maps.Map(document.getElementById('map'), {
+					zoom: 14,
+					center: gymLocation
+				});
+			var marker = new google.maps.Marker({
+					position: gymLocation,
+					map: map
+				});
+			} else if (event.target.matches('.Royal')) {
+			for( var i = 0 ; i < 5 ; i++){
+				if(myGyms[i] == 'Royal Roads'){
+				lati = parseFloat(myLatitudes[i]);
+				longi = parseFloat(myLongitudes[i]);
+				break;
+				}
+			}
+			var gymLocation = {lat: lati, lng: longi};
+			var map = new google.maps.Map(document.getElementById('map'), {
+					zoom: 14,
+					center: gymLocation
+				});
+			var marker = new google.maps.Marker({
+					position: gymLocation,
+					map: map
+				});
+			}
+		}
+		</script>
+	</body>
+</html>

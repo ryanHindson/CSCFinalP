@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="Mypage.css">
+		<script src="Mypage.JS"></script>
+	</head>
+	<body>
+	<div id="SideNav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times</a>
+			<a href="FinalProject1.html">Home</a>
+			<a href="AboutUs.html">About Us</a>
+			<a href="MapPage.html">Local Courts</a>
+			<a href="csc130PP.html">Training Videos</a>
+			<a href="Stats.html">NBA Stats</a>
+			<a href="NBAHighlights.HTML">Nightly Highlights</a>
+			<a href="Mypage.html">My page</a>
+		</div>
+	<div id = "ground">
+		<div>
+		<h1>My Page<h1>
+		</div>
+		<div>
+			<h2>Last Game</h2>
+				<ul>
+					<li id="LPPG">PPG:</li>
+					<li id="LREB">REB: </li>
+					<li id="LAST">AST: </li>
+					<li id="LTOV">TOV: </li>
+				
+				<ul>
+		</div>
+		<div>
+					<h2>This Season</h2>
+				<ul>
+					<li id="APPG">PPG: </li>
+					<li id="AREB">REB: </li>
+					<li id="AAST">AST: </li>
+					<li id="ATOV">TOV: </li>
+				
+				<ul>
+		</div>
+		<div>
+			<button type="button", onclick="addStats()", id="statsbtn">Add Stats</button>
+		</div>
+		<div id="stats" style="display: none;">
+				<h3>PPG:</h3>
+				<input type="number" id="PPG">
+				<h3>REB:</h3>
+				<input type="number" id="REB">
+				<h3>AST:</h3>
+				<input type="number" id="AST">
+				<h3>TOV:</h3>
+				<input type="number"id="TOV">
+
+			<button type="button", onclick="add()", id="stats">Add</button>
+		</div>
+	</div>
+	</body>
+</html>

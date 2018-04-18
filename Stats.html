@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="Stats.css">
+    <meta charset="utf-8">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+</head>
+<body>
+<div id="SideNav" class="sidenav">
+<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times</a>
+<a href="FinalProject1.html">Home</a>
+<a href="AboutUs.html">About Us</a>
+<a href="MapPage.html">Local Courts</a>
+<a href="csc130PP.html">Training Videos</a>
+<a href="#">NBA Stats</a>
+<a href="NBAHighlights.HTML">Nightly Highlights</a>
+<a href="Mypage.html">My page</a>
+</div>
+<span onclick="openNav()">Show Sidebar</span>
+
+<script>
+    function processData(myData) {
+        var myValues = [];
+        var myLabels = [];
+
+        for (var i = 0; i < 30; i++) {
+            myLabels[i] = myData[i].TEAM;
+            myValues[i] = myData[i].SCORE;
+        }
+
+
+        var myChart = new Chart($("#myChart"), {
+            type: 'bar',
+            data: {
+                labels: myLabels,
+                datasets: [{
+                    data: myValues,
+                    backgroundColor: "#22AA55",
+                    label: "Age"
+                }]
+            },
+            "options":{"scales":{"yAxes":[{"ticks":{"beginAtZero": true }}]}}
+        });
+    }
+
+    $(document).ready(function() {
+        $.getJSON("http://danycabrera.com/csc130/proxy.php?key=1B2-U9cgCgWpnHUfA7E52ISEplamXBU8oCzwEkkn6eBs&sheet=NBAPPG/", processData)
+    });
+</script>
+<div>
+<h1>NBA Points Per Game</h1>
+<canvas id="myChart"></canvas>
+</div>
+<script src="FinalProject.js"></script>
+</body>
+</html> 
